@@ -28,17 +28,17 @@ jobs:
           if ! gh release download --repo echohello-dev/pidex "$tag" \
               --dir /tmp/pidex-manifests \
               --pattern 'pidex.rb' \
-              --pattern 'Echohello.Pidex.yaml' \
+              --pattern 'echoHello.Pidex.yaml' \
               --pattern 'pidex.json'; then
             echo "pidex $tag has no package manifests yet; leaving :latest cask in place"
             exit 0
           fi
 
           cp /tmp/pidex-manifests/pidex.rb Casks/pidex.rb
-          cp /tmp/pidex-manifests/Echohello.Pidex.yaml winget/Echohello.Pidex.yaml
+          cp /tmp/pidex-manifests/echoHello.Pidex.yaml winget/echoHello.Pidex.yaml
           cp /tmp/pidex-manifests/pidex.json bucket/pidex.json
 
-          git add Casks/pidex.rb winget/Echohello.Pidex.yaml bucket/pidex.json
+          git add Casks/pidex.rb winget/echoHello.Pidex.yaml bucket/pidex.json
           if git diff --cached --quiet; then
             echo "already in sync with $tag"
             exit 0

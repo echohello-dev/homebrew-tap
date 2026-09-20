@@ -1,6 +1,6 @@
 # echohello-dev tap
 
-Interim package tap for [pidex](https://github.com/echohello-dev/pidex) until the cask is in `homebrew/homebrew-cask` and `Echohello.Pidex` is in `microsoft/winget-pkgs`.
+Interim package tap for [pidex](https://github.com/echohello-dev/pidex) until the cask is in `homebrew/homebrew-cask` and `echoHello.Pidex` is in `microsoft/winget-pkgs`.
 
 A cron (and each pidex release, when `TAP_TOKEN` is set) copies the versioned Homebrew / Winget / Scoop manifests off the latest GitHub release.
 
@@ -24,7 +24,7 @@ Or clone and install the pinned yaml:
 ```powershell
 > git clone --depth 1 https://github.com/echohello-dev/homebrew-tap.git
 > winget settings --enable LocalManifestFiles
-> winget install --manifest .\homebrew-tap\winget\Echohello.Pidex.yaml
+> winget install --manifest .\homebrew-tap\winget\echoHello.Pidex.yaml
 ```
 
 The first `LocalManifestFiles` enable may need an elevated shell.
