@@ -1,0 +1,50 @@
+name: sync pidex
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+  repository_dispatch:
+    types: [pidex-release]
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: pull latest pidex package manifests
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          tag="$(gh release view --repo echohello-dev/pidex --json tagName --jq .tagName)"
+          echo "pidex tag=$tag"
+
+          mkdir -p /tmp/pidex-manifests Casks winget bucket
+          if ! gh release download --repo echohello-dev/pidex "$tag" \
+              --dir /tmp/pidex-manifests \
+              --pattern 'pidex.rb' \
+              --pattern 'Echohello.Pidex.yaml' \
+              --pattern 'pidex.json'; then
+            echo "pidex $tag has no package manifests yet; leaving :latest cask in place"
+            exit 0
+          fi
+
+          cp /tmp/pidex-manifests/pidex.rb Casks/pidex.rb
+          cp /tmp/pidex-manifests/Echohello.Pidex.yaml winget/Echohello.Pidex.yaml
+          cp /tmp/pidex-manifests/pidex.json bucket/pidex.json
+
+          git add Casks/pidex.rb winget/Echohello.Pidex.yaml bucket/pidex.json
+          if git diff --cached --quiet; then
+            echo "already in sync with $tag"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(pidex): sync ${tag}"
+          git push
