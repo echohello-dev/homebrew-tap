@@ -1,9 +1,9 @@
 cask "pidex" do
   arch arm: "arm64", intel: "x64"
 
-  version "2026.09.27"
-  sha256 arm:   "e7a666bcdab3dc024cc75ea61dc42057d2ca29856d3022c820945bde900739b0",
-         intel: "9979245f9a5a131dbba891422bcf5f2e70bc1e1f74970016f2ec11a79e084765"
+  version "2026.09.28-2"
+  sha256 arm:   "979807b7339c5ee5d6c7ad5f0a074c075559b11850e25d2929a4aa850ff6616a",
+         intel: "54a01c12a92d02e288a3f2130065fb9e16000fb90f0c87b4da417f46e84f9936"
 
   url "https://github.com/echohello-dev/pidex/releases/download/#{version}/pidex-mac-#{arch}.dmg"
   name "pidex"
