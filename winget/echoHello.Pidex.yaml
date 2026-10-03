@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://aka.ms/winget-manifest.singleton.1.9.0.schema.json
 PackageIdentifier: echoHello.Pidex
-PackageVersion: 2026.9.28.2
+PackageVersion: 2026.10.2
 PackageLocale: en-US
 Publisher: echoHello
 PublisherUrl: https://github.com/echohello-dev
@@ -15,12 +15,12 @@ Tags:
   - electron
   - pi
   - coding-agent
-ReleaseNotesUrl: https://github.com/echohello-dev/pidex/releases/tag/2026.09.28-2
+ReleaseNotesUrl: https://github.com/echohello-dev/pidex/releases/tag/2026.10.02
 Installers:
   - Architecture: x64
     InstallerType: nullsoft
-    InstallerUrl: https://github.com/echohello-dev/pidex/releases/download/2026.09.28-2/pidex-win-x64.exe
-    InstallerSha256: B7B66DBE6EDDAB29B9F22BC8C8D4B7E345FFA58962928E401C960FFAC940248E
+    InstallerUrl: https://github.com/echohello-dev/pidex/releases/download/2026.10.02/pidex-win-x64.exe
+    InstallerSha256: 94AF54687135DF501B98CAFA15BB12089226202841955C7F375BA34093ACFCF9
     Scope: user
 ManifestType: singleton
 ManifestVersion: 1.9.0

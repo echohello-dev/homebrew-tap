@@ -1,12 +1,12 @@
 {
-  "version": "2026.09.28-2",
+  "version": "2026.10.02",
   "description": "Desktop workbench for the Pi coding agent",
   "homepage": "https://github.com/echohello-dev/pidex",
   "license": "Apache-2.0",
   "architecture": {
     "64bit": {
-      "url": "https://github.com/echohello-dev/pidex/releases/download/2026.09.28-2/pidex-win-x64.exe",
-      "hash": "b7b66dbe6eddab29b9f22bc8c8d4b7e345ffa58962928e401c960ffac940248e"
+      "url": "https://github.com/echohello-dev/pidex/releases/download/2026.10.02/pidex-win-x64.exe",
+      "hash": "94af54687135df501b98cafa15bb12089226202841955c7f375ba34093acfcf9"
     }
   },
   "bin": "pidex.exe",
